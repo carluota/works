@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlotta Sereni</title>
+    <link rel="icon" href="media/favicon/favicon3.jpg" type="image/png">
+</head>
+<body>
+   <div class="spacer">
+    <video autoplay muted loop playsinline src="media/gif home/home_0d.mp4" alt="animazione" class="spacer-img"></video>
+        <div class="header">
+         <a href="index.html">Carlotta Sereni</a>
+            <div class="right">
+            <a href="info.html">Info</a>
+            <a href="https://instagram.com/carluota" target="_blank">@carluota</a>
+            </div>
+        </div>
+            <div class="bottom-text">
+            Visual and communication designer<br>
+            currently based in Milan.
+            </div>
+   </div>
+<a href="memoriale.html" class="wrk-link">
+   <div class="wrk">
+    <img class="focus-center" src="media/memoriale/memoriale_evento02.jpg" alt="">
+     <div class="text-overlay">
+        <span>2025 Milan</span>
+        <span>Il Memoriale del Vuoto</span>
+        <span class="align-right">Archive design</span>
+    </div>
+   </div>
+</a>
+<a href="Echoes.html" class="wrk-link">
+   <div class="wrk">
+    <img src="media/echoes/echoes_cover.jpg" alt="">
+     <div class="text-overlay">
+        <span>2025 Milan</span>
+        <span>Echoes: shaping sound</span>
+        <span class="align-right">Visual design</span>
+     </div>
+   </div>
+</a>
+<a href="anthropology.html" class="wrk-link">
+   <div class="wrk">
+    <img class="focus-top" src="media/anthropology/anthropology_cover.jpeg" alt="">
+     <div class="text-overlay">
+        <span>2023 Milan</span>
+        <span>Anthropology of intelligences</span>
+        <span class="align-right">Editorial design</span>
+     </div>
+   </div>
+</a>
+<a href="pmy.html" class="wrk-link">
+   <div class="wrk">
+    <img class="focus-center" src="media/pmy/pmy_cover.jpg" alt="">
+     <div class="text-overlay">
+        <span>2024 Paris</span>
+        <span>Par Mes Yeux</span>
+        <span class="align-right">Audiovisual design</span>
+    </div>
+   </div>
+</a>
+<a href="memetic.html" class="wrk-link">
+   <div class="wrk">
+    <img src="media/memetic/memetic_cover.JPG" alt="">
+     <div class="text-overlay">
+        <span>2023 Milan</span>
+        <span>Memetic Warfare Vol.1</span>
+        <span class="align-right">Editorial design</span>
+     </div>
+   </div>
+</a>
+<a href="velum.html" class="wrk-link">
+   <div class="wrk">
+    <img src="media/velum/velum_cover.jpg" alt="">
+     <div class="text-overlay">
+        <span>2024 Paris</span>
+        <span>Velum</span>
+        <span class="align-right">Campaign design</span>
+    </div>
+   </div>
+</a>
+<a href="enso.html" class="wrk-link">
+   <div class="wrk">
+    <img src="media/enso/enso_cover.jpg" alt="">
+     <div class="text-overlay">
+        <span>2024 Milan</span>
+        <span>Enso Atelier</span>
+        <span class="align-right">Identity design</span>
+    </div>
+   </div>
+</a>
+
+</body>
+
+<script>
+    const texts = document.querySelectorAll('.text-overlay');
+
+    function updateTextOverlay() {
+        texts.forEach((text, i) => {
+            const section = text.parentElement;
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                text.style.opacity = 1;
+            } else {
+                text.style.opacity = 0;
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateTextOverlay);
+    window.addEventListener('load', updateTextOverlay); // 👈 esegui subito al load
+</script>
+
+
+</html>

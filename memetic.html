@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlotta Sereni / Memetic Warfare</title>
+    <link rel="icon" href="media/favicon/favicon2.png" type="image/png">
+</head>
+<body>
+   <div class="spacer">
+    <video  autoplay muted loop playsinline src="media/memetic/memetic_0.mp4" alt="animazione" class="spacer-img"></video>
+        <div class="header">
+         <a href="index.html">Carlotta Sereni</a>
+            <div class="right">
+            <a href="info.html">Info</a>
+            <a href="https://instagram.com/carluota" target="_blank">@carluota</a>
+            </div>
+        </div>
+            <div class="txt">
+                <span>2023 Milano</span>
+                <span>Memetic Warfare</span>
+                <span class="align-right">Editorial design</span>
+            </div>
+            <div class="bottom-text">
+           “Memetic Warfare Volume 01 - Gaza Conflict” explores how memes shape perceptions 
+           of the Israeli-Palestinian conflict. Once mere internet jokes, memes have become 
+           tools of communication, marketing, and politics, influencing opinions and reframing 
+           complex realities.
+            <br> With G. Bernasconi, F. Gajo, N. Patitucci, F. Scarfone, M. Venini
+            </div>
+    </div>
+<div class="gallery-container"> 
+    <div class="gallery-controls">
+        <a href="pmy.html" class="gallery-button prev-project">Previous Project</a>
+        <div class="gallery-counter">1 / 7</div>
+        <a href="velum.html" class="gallery-button next-project">Next Project</a>
+    </div>
+        <div class="gallery">
+            <div class="slide">
+                <img  class="focus-center"  src="media/memetic/memetic_01.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img class="focus-center" src="media/memetic/memetic_02.jpg" alt="">
+            </div>
+            <div class="slide">
+                <video autoplay muted loop playsinline class="focus-top" src="media/memetic/memetic_03.mp4" alt="">
+            </div>
+            <div class="slide">
+                <video autoplay muted loop playsinline class="focus-center" src="media/memetic/memetic_04.mp4" alt="">
+            </div>
+            <div class="slide">
+                <img class="focus-center" src="media/memetic/memetic_05.JPG" alt="">
+            </div>
+    </div>
+</div>
+
+<script>
+    const gallery = document.querySelector('.gallery');
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.querySelector('.gallery-counter');
+    const totalSlides = slides.length;
+
+    gallery.addEventListener('scroll', () => {
+        const scrollLeft = gallery.scrollLeft;
+        const slideWidth = gallery.offsetWidth;
+        const currentIndex = Math.round(scrollLeft / slideWidth) + 1;
+
+        counter.textContent = `${currentIndex} / ${totalSlides}`;
+    });
+</script>
+
+
+</body>

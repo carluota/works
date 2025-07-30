@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlotta Sereni / Velum</title>
+    <link rel="icon" href="media/favicon/favicon2.png" type="image/png">
+</head>
+<body>
+   <div class="spacer">
+    <video autoplay muted loop playsinline src="media/velum/velum_0.mp4" alt="animazione" class="spacer-img"></video>
+        <div class="header">
+         <a href="index.html">Carlotta Sereni</a>
+            <div class="right">
+            <a href="info.html">Info</a>
+            <a href="https://instagram.com/carluota" target="_blank">@carluota</a>
+            </div>
+        </div>
+            <div class="txt">
+                <span>2024 Paris</span>
+                <span>Velum</span>
+                <span class="align-right">Camapaign design</span>
+            </div>
+            <div class="bottom-text">
+           “VELUM” explores why we photograph paintings in museums. In a culture obsessed 
+           with sharing and validation, art is often reduced to a backdrop for social performance.
+           The project questions how this habit transforms contemplation into consumption, challenging 
+           our relationship with art, memory, and presence.
+        </div>
+    </div>
+<div class="gallery-container"> 
+    <div class="gallery-controls">
+        <a href="memetic.html" class="gallery-button prev-project">Previous Project</a>
+        <div class="gallery-counter">1 / 7</div>
+        <a href="enso.html" class="gallery-button next-project">Next Project</a>
+    </div>
+        <div class="gallery">
+            <div class="slide">
+                <video autoplay muted loop playsinline class="focus-center" src="media/velum/velum_01.mp4" alt="">
+            </div>
+            <div class="slide">
+                <img  class="focus-center"  src="media/velum/velum_02.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img class="focus-center" src="media/velum/velum_03.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img class="focus-center" src="media/velum/velum_04.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img class="focus-center" src="media/velum/velum_05.jpg" alt="">
+            </div>
+            <div class="slide">
+                <video autoplay muted loop playsinline class="focus-center" src="media/velum/velum_06.mp4" alt="">
+            </div>
+             
+            
+    </div>
+</div>
+
+<script>
+    const gallery = document.querySelector('.gallery');
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.querySelector('.gallery-counter');
+    const totalSlides = slides.length;
+
+    gallery.addEventListener('scroll', () => {
+        const scrollLeft = gallery.scrollLeft;
+        const slideWidth = gallery.offsetWidth;
+        const currentIndex = Math.round(scrollLeft / slideWidth) + 1;
+
+        counter.textContent = `${currentIndex} / ${totalSlides}`;
+    });
+</script>
+
+
+</body>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlotta Sereni / Anthropology of intelligences</title>
+    <link rel="icon" href="media/favicon/favicon2.png" type="image/png">
+</head>
+<body>
+   <div class="spacer">
+    <video autoplay muted loop playsinline src="media/anthropology/anthropology_0.mp4" alt="animazione" class="spacer-img"></video>
+        <div class="header">
+         <a href="index.html">Carlotta Sereni</a>
+            <div class="right">
+            <a href="info.html">Info</a>
+            <a href="https://instagram.com/carluota" target="_blank">@carluota</a>
+            </div>
+        </div>
+            <div class="txt">
+                <span>2023 Milano</span>
+                <span>Anthropology of intelligences</span>
+                <span class="align-right">Editorial design</span>
+            </div>
+            <div class="bottom-text">
+           A speculative, AI-generated book envisioning a fictional “AI and Anthropology” course. 
+           It explores how AI can support ethnographic research and large-scale data analysis, while 
+           also critically exposing its limits and embedded cultural biases.
+           <br> With G. Bernasconi, F. Gajo, N. Patitucci, F. Scarfone, M. Venini
+            </div>
+    </div>
+<div class="gallery-container"> 
+    <div class="gallery-controls">
+            <a href="echoes.html" class="gallery-button prev-project">Previous Project</a>
+            <div class="gallery-counter">1 / 8</div>
+            <div class="time-display">0:00 / 0:00</div>
+            <a href="pmy.html" class="gallery-button next-project">Next Project</a>
+    </div>
+
+        <div class="gallery">
+            <div class="slide">
+                <img  class="focus-top"  src="media/anthropology/anthropology_01.jpeg" alt="">
+            </div>
+            <div class="slide">
+                <img class="focus-center" src="media/anthropology/anthropology_02.jpeg" alt="">
+            </div>
+            <div class="slide">
+                <img class="focus-top" src="media/anthropology/anthropology_03.jpeg" alt="">
+            </div>
+            <div class="slide">
+                <img class="focus-bottom" src="media/anthropology/anthropology_04.jpeg" alt="">
+            </div>
+            <div class="slide">
+                <img class="focus-center" src="media/anthropology/anthropology_05.jpeg" alt="">
+            </div>
+            <div class="slide">
+                <img class="focus-top" src="media/anthropology/anthropology_06.jpeg" alt="">
+            </div>
+            <div class="slide">
+                <img class="focus-top" src="media/anthropology/anthropology_07.jpeg" alt="">
+            </div>
+          <div class="slide gallery-video">
+                <video muted class="focus-top" src="media/anthropology/anthropology_video.mp4"></video>
+                <button class="play-btn">▶</button>
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    const gallery = document.querySelector('.gallery');
+const slides = document.querySelectorAll('.slide');
+const counter = document.querySelector('.gallery-counter');
+const totalSlides = slides.length;
+
+// Aggiorna contatore slide
+gallery.addEventListener('scroll', () => {
+    const scrollLeft = gallery.scrollLeft;
+    const slideWidth = gallery.offsetWidth;
+    const currentIndex = Math.round(scrollLeft / slideWidth) + 1;
+
+    counter.textContent = `${currentIndex} / ${totalSlides}`;
+});
+
+// Elementi video
+const videoSlide = document.querySelector('.gallery-video');
+const video = videoSlide.querySelector('video');
+const playBtn = videoSlide.querySelector('.play-btn');
+const timeDisplay = videoSlide.querySelector('.time-display');
+
+// ▶ Pulsante Play
+playBtn.addEventListener('click', () => {
+    video.muted = false; // Attiva audio
+    video.play();
+    playBtn.style.display = 'none'; // Nasconde il pulsante
+});
+
+// ⏱ Aggiorna counter tempo
+video.addEventListener('timeupdate', () => {
+    const current = video.currentTime;
+    const duration = video.duration;
+
+    if (duration > 0) {
+        const formatTime = (t) => {
+            const minutes = Math.floor(t / 60);
+            const seconds = Math.floor(t % 60).toString().padStart(2, '0');
+            return `${minutes}:${seconds}`;
+        };
+
+        timeDisplay.textContent = `${formatTime(current)} / ${formatTime(duration)}`;
+    }
+});
+
+
+
+
+// 👀 Intersection Observer: pausa fuori viewport
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            video.pause();
+            playBtn.style.display = 'block'; // Mostra di nuovo il pulsante
+            video.muted = true; // Rimetti mute
+            timeDisplay.textContent = '0:00 / 0:00'; // Resetta tempo
+        }
+    });
+}, {
+    threshold: 0.25 // 25% visibile
+});
+
+observer.observe(videoSlide);
+
+
+
+
+</script>
+
+
+</body>

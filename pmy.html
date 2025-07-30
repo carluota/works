@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlotta Sereni / Par Mes Yeux</title>
+    <link rel="icon" href="media/favicon/favicon2.png" type="image/png">
+</head>
+<body>
+   <div class="spacer">
+    <video autoplay muted loop playsinlin src="media/pmy/pmy_0.mp4" alt="animazione" class="spacer-img"></video>
+        <div class="header">
+         <a href="index.html">Carlotta Sereni</a>
+            <div class="right">
+            <a href="info.html">Info</a>
+            <a href="https://instagram.com/carluota" target="_blank">@carluota</a>
+            </div>
+        </div>
+            <div class="txt">
+                <span>2024 Paris</span>
+                <span>Par Mes Yeux</span>
+                <span class="align-right">Audiovisual design</span>
+            </div>
+            <div class="bottom-text">
+           What truly defines the identity of a place? Its physical elements or our perception 
+           of them? This visual and semiotic exploration, seen through my personal gaze, creates 
+           a dialogue between external reality and inner reflection, revealing a more intimate and 
+           layered sense of place.
+            </div>
+    </div>
+<div class="gallery-container"> 
+    <div class="gallery-controls">
+        <a href="anthropology.html" class="gallery-button prev-project">Previous Project</a>
+        <div class="gallery-counter">1 / 9</div>
+        <a href="memetic.html" class="gallery-button next-project">Next Project</a>
+    </div>
+     <div class="gallery">
+            <div class="slide gallery-video">
+                <video muted class="focus-top" src="media/pmy/pmy_00.mp4" alt=""></video>
+                <button class="play-btn">▶</button>
+            </div>
+            <div class="slide">
+                <img  class="focus-center"  src="media/pmy/pmy_01.jpg" alt="">
+            </div>
+             <div class="slide">
+                <img  class="focus-center"  src="media/pmy/pmy_01txt.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img class="focus-center" src="media/pmy/pmy_02.jpg" alt="">
+            </div>
+              <div class="slide">
+                <img  class="focus-center"  src="media/pmy/pmy_02txt.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img  class="focus-center"  src="media/pmy/pmy_03.jpg" alt="">
+            </div>
+              <div class="slide">
+                <img  class="focus-center"  src="media/pmy/pmy_03txt.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img class="focus-center" src="media/pmy/pmy_04.jpg" alt="">
+            </div>
+              <div class="slide">
+                <img  class="focus-center"  src="media/pmy/pmy_04txt.jpg" alt="">
+            </div>
+            
+</div>
+
+<script>
+    const gallery = document.querySelector('.gallery');
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.querySelector('.gallery-counter');
+    const totalSlides = slides.length;
+
+    gallery.addEventListener('scroll', () => {
+        const scrollLeft = gallery.scrollLeft;
+        const slideWidth = gallery.offsetWidth;
+        const currentIndex = Math.round(scrollLeft / slideWidth) + 1;
+
+        counter.textContent = `${currentIndex} / ${totalSlides}`;
+    });
+
+const videoSlide = document.querySelector('.gallery-video');
+const video = videoSlide.querySelector('video');
+const playBtn = videoSlide.querySelector('.play-btn');
+
+playBtn.addEventListener('click', () => {
+    video.muted = false; // attiva audio
+    video.play();
+    playBtn.style.display = 'none'; // nasconde il pulsante
+});
+
+// Intersection Observer per fermare il video quando esce dalla viewport
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            // video non visibile: pausa e mostra bottone
+            video.pause();
+            playBtn.style.display = 'block';
+            video.muted = true; // opzionale: rimetti mute se vuoi
+        }
+    });
+}, {
+    threshold: 0.25 // cambia soglia se vuoi (25% visibile)
+});
+
+observer.observe(videoSlide);
+
+</script>
+
+
+</body>

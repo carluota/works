@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlotta Sereni / Enso Atelier</title>
+    <link rel="icon" href="media/favicon/favicon2.png" type="image/png">
+</head>
+<body>
+   <div class="spacer">
+    <video autoplay muted loop playsinlin src="media/enso/enso_0.mp4" alt="animazione" class="spacer-img"></video>
+        <div class="header">
+         <a href="index.html">Carlotta Sereni</a>
+            <div class="right">
+            <a href="info.html">Info</a>
+            <a href="https://instagram.com/carluota" target="_blank">@carluota</a>
+            </div>
+        </div>
+            <div class="txt">
+                <span>2024 Milan</span>
+                <span>Enso Atelier</span>
+                <span class="align-right">Brand design</span>
+            </div>
+            <div class="bottom-text">
+           Enso Atelier is my jewelry brand, inspired by the Enso’s philosophy of harmony, 
+           continuity, and imperfect beauty. Each piece reflects a balance between nature’s 
+           organic forms and the elegance of handcrafted design.
+            </div>
+    </div>
+<div class="gallery-container"> 
+    <div class="gallery-controls">
+        <a href="velum.html" class="gallery-button prev-project">Previous Project</a>
+        <div class="gallery-counter">1 / 5</div>
+        <a href="memoriale.html" class="gallery-button next-project">Next Project</a>
+    </div>
+        <div class="gallery">
+            <div class="slide">
+                <img  class="focus-center"  src="media/enso/enso_01.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img class="focus-center" src="media/enso/enso_02.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img class="focus-center" src="media/enso/enso_03.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img class="focus-center" src="media/enso/enso_04.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img class="focus-center" src="media/enso/enso_05.jpg" alt="">
+            </div>
+    </div>
+</div>
+
+<script>
+    const gallery = document.querySelector('.gallery');
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.querySelector('.gallery-counter');
+    const totalSlides = slides.length;
+
+    gallery.addEventListener('scroll', () => {
+        const scrollLeft = gallery.scrollLeft;
+        const slideWidth = gallery.offsetWidth;
+        const currentIndex = Math.round(scrollLeft / slideWidth) + 1;
+
+        counter.textContent = `${currentIndex} / ${totalSlides}`;
+    });
+</script>
+
+
+</body>

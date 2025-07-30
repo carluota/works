@@ -1,0 +1,330 @@
+.header,
+.bottom-text,
+.txt,
+.text-overlay,
+.gallery-controls,
+.gallery-button,
+.gallery-counter,
+.play-btn,
+.textlist {
+    mix-blend-mode: difference;
+    color: white; /* colore base (viene invertito dal difference) */
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    line-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.spacer {
+    width: 100vw;
+    height: 100vh; /* occupa tutta la viewport */
+    background: white; /* oppure metti un colore se vuoi */
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+}
+
+.spacer-img,
+.spacer-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100px; /* limita la grandezza su schermi grandi */
+    width: 50%;       /* responsive: metà della viewport */
+    height: auto;
+    z-index: 0;
+}
+
+
+.header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between; /* sparge i 3 testi sulla larghezza */
+    align-items: flex-start; /* centra verticalmente se necessario */
+    width: 100vw; /* prende tutta la larghezza della viewport */
+    z-index: 1;
+}
+
+.header a {
+    color: inherit;         /* usa lo stesso colore del resto dell'header */
+    text-decoration: none;  /* rimuove il sottolineato */
+    mix-blend-mode: difference; /* se vuoi mantenere il difference anche qui */
+}
+
+.header a:hover {
+    text-decoration: underline; /* aggiungi un effetto hover */
+}
+
+.header .right {
+    display: flex;
+    gap: 100px; /* spazio tra Index e @carluota */
+}
+
+.bottom-text {
+    position: absolute;
+    bottom: 1rem; /* distanza dal bordo inferiore */
+    text-align: left;
+    line-height: 100%;
+}
+
+.info-text-about {
+    margin-top: 50px; /* normale per tutti */
+}
+.info-text {
+    margin-top: 30px; /* normale per tutti */
+}
+
+
+
+.wrk {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.wrk img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.txt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between; /* sparge i 3 testi sulla larghezza */
+    align-items: flex-start; /* centra verticalmente se necessario */
+    width: 100vw; /* prende tutta la larghezza della viewport */
+    padding: 0 2rem; /* margine laterale per non attaccarli ai bordi */
+    gap: 100px;
+}
+
+.txt span:not(.align-right) {
+    text-align: left;
+}
+
+.txt .align-right {
+    margin-left: auto; /* spinge questo elemento tutto a destra */
+    text-align: right;
+}
+
+.focus-top {
+  object-position: center top;
+}
+
+.focus-center {
+    object-position: center center;
+}
+
+.focus-bottom {
+  object-position: center bottom;
+}
+
+.text-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between; /* sparge i 3 testi sulla larghezza */
+    align-items: flex-start; /* centra verticalmente se necessario */
+    width: 100vw; /* prende tutta la larghezza della viewport */
+    padding: 0 2rem; /* margine laterale per non attaccarli ai bordi */
+    opacity: 0; /* tutti nascosti all'inizio */
+    gap: 100px;
+}
+
+.text-overlay span:not(.align-right) {
+    text-align: left;
+}
+
+.text-overlay .align-right {
+    margin-left: auto; /* spinge questo elemento tutto a destra */
+    text-align: right;
+}
+
+
+.textlist {
+    display: flex;
+    justify-content: space-between; /* allinea testi */
+    align-items: center;
+    text-decoration: none; /* rimuove sottolineatura link */
+    
+}
+
+.textlist:hover {
+    text-decoration: underline; /* effetto hover */
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column; /* mette i figli uno sotto l’altro */
+    justify-content: center; /* centra verticalmente */
+    align-items: stretch; /* ogni link prende tutta la larghezza */
+    height: 100vh; /* occupa tutta la viewport */
+}
+
+
+.gallery-container {
+    position: relative;
+    width: 100vw;
+}
+
+.gallery {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    width: 100dvw; /* usa la viewport dinamica */
+    height: 100dvh;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.slide {
+    flex: 0 0 100dvw; /* cambia da 100vw */
+    height: 100dvh;
+    scroll-snap-align: start;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* evita spazi bianchi causati da img inline */
+}
+
+.slide video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* evita spazi bianchi causati da img inline */
+}
+
+.gallery-controls {
+    position: absolute;
+    bottom: 0.2rem;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    z-index: 10;
+    gap: 100px;
+}
+
+
+.gallery-counter {
+    margin-right: auto;
+}
+
+.gallery-button,
+.gallery-counter {
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    pointer-events: auto; /* permetti click solo ai bottoni */
+    mix-blend-mode: difference;
+}
+
+.gallery-button:hover {
+    text-decoration: underline;
+}
+           
+.play-btn {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.gallery-video {
+    position: relative;
+}
+
+.time-display {
+    display: none;
+    margin-left: auto; /* lo spinge tutto a destra */
+    pointer-events: none;
+    mix-blend-mode: difference;
+}
+
+
+.textlist {
+    display: flex;
+    justify-content: space-between; /* allinea primi 2 a sinistra, ultimo a destra */
+    mix-blend-mode: difference;
+    color: white;
+}
+
+.textlist span {
+    flex: 1;
+}
+
+.textlist .align-right {
+    margin-left: auto; /* spinge questo elemento tutto a destra */
+    text-align: right;
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centra verticalmente */
+    align-items: stretch;    /* allunga la lista a tutta la larghezza */
+    height: 100vh;           /* occupa tutta la viewport */
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    body {
+        font-size: 1.1rem; /* rimpicciolisce la base */
+    }
+
+    .header .right {
+    gap: 50px; /* spazio tra Index e @carluota */
+    }
+
+    .text-overlay,
+    .txt {
+    gap: 50px;
+    }
+
+    .spacer-video {
+        max-width: 50px;
+    }
+
+    .gallery-controls {
+        gap: 50px;
+    }
+
+}
+
+
