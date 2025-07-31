@@ -387,15 +387,11 @@ body {
 
     .text-overlay,
     .txt {
-    gap: 50px;
+    gap: 40px;
     }
 
     .spacer-video {
         max-width: 50px;
-    }
-
-    .gallery-controls {
-        gap: 50px;
     }
 
     .gallery-nav {
