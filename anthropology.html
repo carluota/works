@@ -37,6 +37,14 @@
             <a href="pmy.html" class="gallery-button next-project">Next Project</a>
     </div>
 
+        <!-- Zone per hover -->
+    <div class="gallery-nav left-nav">
+        <span class="arrow">&#10229;</span> <!-- ⟵ -->
+    </div>
+    <div class="gallery-nav right-nav">
+        <span class="arrow">&#10230;</span> <!-- ⟶ -->
+    </div>
+
         <div class="gallery">
             <div class="slide">
                 <img  class="focus-top"  src="media/anthropology/anthropology_01.jpeg" alt="">
@@ -131,10 +139,20 @@ const observer = new IntersectionObserver((entries) => {
 
 observer.observe(videoSlide);
 
-
-
-
 </script>
+
+<script>
+    const galleryEl = document.querySelector('.gallery');
+    const slideWidth = galleryEl.offsetWidth;
+
+    document.querySelector('.left-nav').addEventListener('click', () => {
+        galleryEl.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+    });
+
+    document.querySelector('.right-nav').addEventListener('click', () => {
+        galleryEl.scrollBy({ left: slideWidth, behavior: 'smooth' });
+    });
+    </script>
 
 
 </body>

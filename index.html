@@ -104,8 +104,10 @@
             const rect = section.getBoundingClientRect();
             if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
                 text.style.opacity = 1;
+                text.style.pointerEvents = "auto"
             } else {
                 text.style.opacity = 0;
+                text.style.pointerEvents = "none"
             }
         });
     }

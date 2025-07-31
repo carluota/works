@@ -35,6 +35,16 @@
         <div class="gallery-counter">1 / 7</div>
         <a href="enso.html" class="gallery-button next-project">Next Project</a>
     </div>
+
+        <!-- Zone per hover -->
+    <div class="gallery-nav left-nav">
+        <span class="arrow">&#10229;</span> <!-- ⟵ -->
+    </div>
+    <div class="gallery-nav right-nav">
+        <span class="arrow">&#10230;</span> <!-- ⟶ -->
+    </div>
+
+
         <div class="gallery">
             <div class="slide">
                 <video autoplay muted loop playsinline class="focus-center" src="media/velum/velum_01.mp4" alt="">
@@ -73,6 +83,17 @@
         counter.textContent = `${currentIndex} / ${totalSlides}`;
     });
 </script>
+<script>
+    const galleryEl = document.querySelector('.gallery');
+    const slideWidth = galleryEl.offsetWidth;
 
+    document.querySelector('.left-nav').addEventListener('click', () => {
+        galleryEl.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+    });
+
+    document.querySelector('.right-nav').addEventListener('click', () => {
+        galleryEl.scrollBy({ left: slideWidth, behavior: 'smooth' });
+    });
+    </script>
 
 </body>

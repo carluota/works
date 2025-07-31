@@ -36,6 +36,15 @@
         <div class="gallery-counter">1 / 7</div>
         <a href="velum.html" class="gallery-button next-project">Next Project</a>
     </div>
+
+     <!-- Zone per hover -->
+    <div class="gallery-nav left-nav">
+        <span class="arrow">&#10229;</span> <!-- ⟵ -->
+    </div>
+    <div class="gallery-nav right-nav">
+        <span class="arrow">&#10230;</span> <!-- ⟶ -->
+    </div>
+
         <div class="gallery">
             <div class="slide">
                 <img  class="focus-center"  src="media/memetic/memetic_01.jpg" alt="">
@@ -68,7 +77,21 @@
 
         counter.textContent = `${currentIndex} / ${totalSlides}`;
     });
-</script>
+    </script>
+    
+    <script>
+    const galleryEl = document.querySelector('.gallery');
+    const slideWidth = galleryEl.offsetWidth;
+
+    document.querySelector('.left-nav').addEventListener('click', () => {
+        galleryEl.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+    });
+
+    document.querySelector('.right-nav').addEventListener('click', () => {
+        galleryEl.scrollBy({ left: slideWidth, behavior: 'smooth' });
+    });
+    </script>
+
 
 
 </body>

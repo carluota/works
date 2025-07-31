@@ -35,11 +35,22 @@
         <div class="gallery-counter">1 / 9</div>
         <a href="memetic.html" class="gallery-button next-project">Next Project</a>
     </div>
+
+        <!-- Zone per hover -->
+    <div class="gallery-nav left-nav">
+        <span class="arrow">&#10229;</span> <!-- ⟵ -->
+    </div>
+    <div class="gallery-nav right-nav">
+        <span class="arrow">&#10230;</span> <!-- ⟶ -->
+    </div>
+
+
      <div class="gallery">
             <div class="slide gallery-video">
                 <video muted class="focus-top" src="media/pmy/pmy_00.mp4" alt=""></video>
                 <button class="play-btn">▶</button>
             </div>
+            
             <div class="slide">
                 <img  class="focus-center"  src="media/pmy/pmy_01.jpg" alt="">
             </div>
@@ -108,6 +119,17 @@ const observer = new IntersectionObserver((entries) => {
 observer.observe(videoSlide);
 
 </script>
+<script>
+    const galleryEl = document.querySelector('.gallery');
+    const slideWidth = galleryEl.offsetWidth;
 
+    document.querySelector('.left-nav').addEventListener('click', () => {
+        galleryEl.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+    });
+
+    document.querySelector('.right-nav').addEventListener('click', () => {
+        galleryEl.scrollBy({ left: slideWidth, behavior: 'smooth' });
+    });
+    </script>
 
 </body>

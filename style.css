@@ -6,7 +6,9 @@
 .gallery-button,
 .gallery-counter,
 .play-btn,
-.textlist {
+.textlist,
+.gallery-nav, 
+.arrow  {
     mix-blend-mode: difference;
     color: white; /* colore base (viene invertito dal difference) */
 }
@@ -32,7 +34,6 @@ body {
     background: white; /* oppure metti un colore se vuoi */
     overflow: hidden;
     position: relative;
-    z-index: 10;
 }
 
 .spacer-img,
@@ -54,7 +55,7 @@ body {
     justify-content: space-between; /* sparge i 3 testi sulla larghezza */
     align-items: flex-start; /* centra verticalmente se necessario */
     width: 100vw; /* prende tutta la larghezza della viewport */
-    z-index: 1;
+    z-index: 4;
 }
 
 .header a {
@@ -86,7 +87,19 @@ body {
     margin-top: 30px; /* normale per tutti */
 }
 
+.info-text a {
+    color: black;              /* testo nero */
+    text-decoration: underline; /* sottolineato */
+}
 
+.info-text a:visited {
+    color: black; /* evita che diventino viola dopo il click */
+}
+
+.info-text a:hover {
+    color: black; /* niente cambio colore al passaggio */
+    text-decoration: underline;
+}
 
 .wrk {
     width: 100vw;
@@ -123,6 +136,9 @@ body {
     text-align: right;
 }
 
+
+/* FOCUS IMG PROGETTI */
+
 .focus-top {
   object-position: center top;
 }
@@ -134,6 +150,9 @@ body {
 .focus-bottom {
   object-position: center bottom;
 }
+
+
+/* TITOLI PROGETTI HOME */
 
 .text-overlay {
     position: fixed;
@@ -159,6 +178,8 @@ body {
 }
 
 
+/* BOH */
+
 .textlist {
     display: flex;
     justify-content: space-between; /* allinea testi */
@@ -179,6 +200,9 @@ body {
     height: 100vh; /* occupa tutta la viewport */
 }
 
+
+
+/* GALLERY */
 
 .gallery-container {
     position: relative;
@@ -225,13 +249,7 @@ body {
     justify-content: space-between;
     align-items: center;
     pointer-events: none;
-    z-index: 10;
-    gap: 100px;
-}
-
-
-.gallery-counter {
-    margin-right: auto;
+    z-index: 2;
 }
 
 .gallery-button,
@@ -245,6 +263,57 @@ body {
 .gallery-button:hover {
     text-decoration: underline;
 }
+
+.gallery-nav {
+    position: absolute;
+    top: 0;
+    width: 15%; /* area attiva per hover */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0; /* invisibile di default */
+    transition: opacity 0.3s;
+}
+
+
+/* GALLERY-FRECCE */
+
+.gallery-nav .arrow {
+    position: absolute;
+}
+
+.gallery-nav:hover {
+    opacity: 1; /* visibile al passaggio */
+}
+
+.gallery-nav.left-nav {
+    left: 0;
+}   
+
+.gallery-nav.right-nav {
+    right: 0;
+}
+
+.gallery-nav .arrow {
+    font-size: 2rem;
+    color: white;
+    mix-blend-mode: difference; /* coerente con il tuo stile */
+    user-select: none;
+}
+
+.gallery-nav.left-nav .arrow {
+    left: 15px; /* distanza dal bordo sinistro */
+}
+
+.gallery-nav.right-nav .arrow {
+    right: 15px; /* distanza dal bordo destro */
+}
+
+
+/* GALLERY-VIDEO */
            
 .play-btn {
     position: absolute;
@@ -255,7 +324,7 @@ body {
     border: none;
     font-size: 3rem;
     cursor: pointer;
-    z-index: 10;
+    z-index: 3;
 }
 
 .gallery-video {
@@ -268,6 +337,11 @@ body {
     pointer-events: none;
     mix-blend-mode: difference;
 }
+
+
+
+
+/* bo */
 
 
 .textlist {
@@ -299,8 +373,7 @@ body {
 
 
 
-
-
+/* RESPONSIVE */
 
 
 @media (max-width: 768px) {
@@ -323,6 +396,11 @@ body {
 
     .gallery-controls {
         gap: 50px;
+    }
+
+    .gallery-nav {
+        display: none;
+        pointer-events: none; /* Nessun click possibile */
     }
 
 }
