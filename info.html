@@ -16,39 +16,63 @@
             <a href="https://instagram.com/carluota" target="_blank">@carluota</a>
             </div>
         </div>
-        <div class="info-text-about">
-            Visual and communication designer currently based in Milan. My approach to design stems 
-            from a desire to create a dialogue that goes beyond the visual surface, transforming each 
-            project into a tool for communication and reflection. I believe design has the power to provoke, 
-            raise questions, and engage people in broader narratives. Each work becomes a meeting point 
-            between my personal gaze and the dynamics of the surrounding world, aiming to explore new perspectives, 
-            challenge the obvious, and spark awareness.
-        </div>
-         <div class="info-text">
-            Education <br> <br>
-
-            Master ( 2023 - 2026 ) <br>
-            Communication Design <br>
-            @ Politecnico di Milano <br>
-            <br>
-            Exchange student ( 2025 ) <br>
-            Graphic Design <br>
-            @ ELISAVA Barcelona <br>
-            <br>
-            Exchange student ( 2024 ) <br>
-            Identity Design <br>
-            @ Strate de Paris <br>
-            <br>
-            Bachelor ( 2020 - 2023 ) <br>
-            Communication Design <br>
-            @ Politecnico di Milano
-        </div>
-        <div class="info-text">
-            Contacts
-            <br><br>
-            <a href="mailto:serenicarlotta1@gmail.com" target="_blank">serenicarlotta1@gmail.com</a> <br>
-            <a href="https://instagram.com/carluota" target="_blank">@carluota</a>
-        </div>
-    </div>
     
+<div class="info-text-about">
+   <div class="rotating-wrapper">
+            <div class="rotating-overlay">
+                <img src="media/info/sonoio.png" alt="">
+            </div>
+   </div>
+     I’m a visual designer interested in using design as a way to explore, question, and communicate beyond the surface.
+    <br>
+    I graduated in Communication Design from Politecnico di Milano and my studies have taken me between Barcelona and Paris, alongside work collaborations with The Movi Club and Siamo Un Magazine.
+    <br><br>
+    If you’d like to work together feel free to reach out!
+    <br>
+    <a class="info-text" href="mailto:serenicarlotta1@gmail.com">serenicarlotta1@gmail.com</a> <br>
+    <a class="info-text" href="https://instagram.com/carluota">@carluota</a>
+    </div>
+</div>
+    
+    </div>
+
+<script>
+const wrapper = document.querySelector(".rotating-wrapper");
+const el = document.querySelector(".rotating-overlay");
+
+const img = el.querySelector("img");
+let size = img.offsetWidth;
+
+let x = 100;
+let y = 100;
+let dx = 150; // px al secondo
+let dy = 150;
+let angle = 0;
+
+let lastTime = performance.now();
+
+function animate(now) {
+  const dt = (now - lastTime) / 1000; // secondi
+  lastTime = now;
+
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+
+  // movimento basato sul tempo
+  x += dx * dt;
+  y += dy * dt;
+  angle += 100 * dt; // gradi al secondo
+
+  if (x + size >= w || x <= 0) dx *= -1;
+  if (y + size >= h || y <= 0) dy *= -1;
+
+  wrapper.style.transform = `translate(${Math.round(x)}px, ${Math.round(y)}px)`;
+  el.style.transform = `rotate(${angle}deg)`;
+
+  requestAnimationFrame(animate);
+}
+
+requestAnimationFrame(animate);
+</script>
+
 </body>

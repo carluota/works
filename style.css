@@ -7,13 +7,15 @@
 .gallery-counter,
 .play-btn,
 .textlist,
-.gallery-nav, 
-.arrow  {
+.gallery-nav,
+.arrow {
     mix-blend-mode: difference;
-    color: white; /* colore base (viene invertito dal difference) */
+    color: white;
+    /* colore base (viene invertito dal difference) */
 }
 
-html, body {
+html,
+body {
     overflow-x: hidden;
 }
 
@@ -30,8 +32,10 @@ body {
 
 .spacer {
     width: 100vw;
-    height: 100vh; /* occupa tutta la viewport */
-    background: white; /* oppure metti un colore se vuoi */
+    height: 100vh;
+    /* occupa tutta la viewport */
+    background: white;
+    /* oppure metti un colore se vuoi */
     overflow: hidden;
     position: relative;
 }
@@ -42,8 +46,10 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 100px; /* limita la grandezza su schermi grandi */
-    width: 50%;       /* responsive: metà della viewport */
+    max-width: 100px;
+    /* limita la grandezza su schermi grandi */
+    width: 50%;
+    /* responsive: metà della viewport */
     height: auto;
     z-index: 0;
 }
@@ -52,54 +58,120 @@ body {
 .header {
     position: fixed;
     display: flex;
-    justify-content: space-between; /* sparge i 3 testi sulla larghezza */
-    align-items: flex-start; /* centra verticalmente se necessario */
-    width: 100vw; /* prende tutta la larghezza della viewport */
-    z-index: 4;
+    justify-content: space-between;
+    /* sparge i 3 testi sulla larghezza */
+    align-items: flex-start;
+    /* centra verticalmente se necessario */
+    width: 100vw;
+    /* prende tutta la larghezza della viewport */
+    z-index: 1;
 }
 
 .header a {
-    color: inherit;         /* usa lo stesso colore del resto dell'header */
-    text-decoration: none;  /* rimuove il sottolineato */
-    mix-blend-mode: difference; /* se vuoi mantenere il difference anche qui */
+    color: inherit;
+    /* usa lo stesso colore del resto dell'header */
+    text-decoration: none;
+    /* rimuove il sottolineato */
+    mix-blend-mode: difference;
+    /* se vuoi mantenere il difference anche qui */
 }
 
 .header a:hover {
-    text-decoration: underline; /* aggiungi un effetto hover */
+    text-decoration: underline;
+    /* aggiungi un effetto hover */
 }
 
 .header .right {
     display: flex;
-    gap: 100px; /* spazio tra Index e @carluota */
+    gap: 100px;
+    /* spazio tra Index e @carluota */
 }
 
 .bottom-text {
     position: absolute;
-    bottom: 1rem; /* distanza dal bordo inferiore */
+    bottom: 1rem;
+    /* distanza dal bordo inferiore */
     text-align: left;
     line-height: 100%;
 }
 
-.info-text-about {
-    margin-top: 50px; /* normale per tutti */
+body.info-page .spacer {
+  background: #FFFC43 ;
 }
+
+body.info-page .header a {
+  color: black;
+  mix-blend-mode: normal;
+}
+
+body.info-page .header {
+  mix-blend-mode: normal;
+}
+
+.info-text-about {
+    margin-top: 50px;
+    /* normale per tutti */
+    font-size: 3rem;
+    line-height: 100%;
+}
+
 .info-text {
-    margin-top: 30px; /* normale per tutti */
+    margin-top: 30px;
+    /* normale per tutti */
+    color: black;
+    /* testo nero */
+    text-decoration: underline;
+    /* sottolineato */
 }
 
 .info-text a {
-    color: black;              /* testo nero */
-    text-decoration: underline; /* sottolineato */
+    color: black;
+    /* testo nero */
+    text-decoration: underline;
+    /* sottolineato */
 }
 
 .info-text a:visited {
-    color: black; /* evita che diventino viola dopo il click */
+    color: black;
+    /* evita che diventino viola dopo il click */
 }
 
 .info-text a:hover {
-    color: black; /* niente cambio colore al passaggio */
+    color: black;
+    /* niente cambio colore al passaggio */
     text-decoration: underline;
 }
+
+.text-wrapper {
+  position: relative;
+}
+
+/* overlay sopra il testo */
+
+.rotating-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+}  
+
+.rotating-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+
+  mix-blend-mode: normal; /* 🔥 fondamentale */
+  isolation: isolate;     /* 🔥 ancora più importante */
+}
+
+.rotating-overlay img {
+  width: 150px;
+  height: auto;
+}
+
 
 .wrk {
     width: 100vw;
@@ -120,10 +192,14 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    justify-content: space-between; /* sparge i 3 testi sulla larghezza */
-    align-items: flex-start; /* centra verticalmente se necessario */
-    width: 100vw; /* prende tutta la larghezza della viewport */
-    padding: 0 2rem; /* margine laterale per non attaccarli ai bordi */
+    justify-content: space-between;
+    /* sparge i 3 testi sulla larghezza */
+    align-items: flex-start;
+    /* centra verticalmente se necessario */
+    width: 100vw;
+    /* prende tutta la larghezza della viewport */
+    padding: 0 2rem;
+    /* margine laterale per non attaccarli ai bordi */
     gap: 100px;
 }
 
@@ -132,7 +208,8 @@ body {
 }
 
 .txt .align-right {
-    margin-left: auto; /* spinge questo elemento tutto a destra */
+    margin-left: auto;
+    /* spinge questo elemento tutto a destra */
     text-align: right;
 }
 
@@ -140,7 +217,7 @@ body {
 /* FOCUS IMG PROGETTI */
 
 .focus-top {
-  object-position: center top;
+    object-position: center top;
 }
 
 .focus-center {
@@ -148,7 +225,7 @@ body {
 }
 
 .focus-bottom {
-  object-position: center bottom;
+    object-position: center bottom;
 }
 
 
@@ -160,11 +237,16 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    justify-content: space-between; /* sparge i 3 testi sulla larghezza */
-    align-items: flex-start; /* centra verticalmente se necessario */
-    width: 100vw; /* prende tutta la larghezza della viewport */
-    padding: 0 2rem; /* margine laterale per non attaccarli ai bordi */
-    opacity: 0; /* tutti nascosti all'inizio */
+    justify-content: space-between;
+    /* sparge i 3 testi sulla larghezza */
+    align-items: flex-start;
+    /* centra verticalmente se necessario */
+    width: 100vw;
+    /* prende tutta la larghezza della viewport */
+    padding: 0 2rem;
+    /* margine laterale per non attaccarli ai bordi */
+    opacity: 0;
+    /* tutti nascosti all'inizio */
     gap: 100px;
 }
 
@@ -173,7 +255,8 @@ body {
 }
 
 .text-overlay .align-right {
-    margin-left: auto; /* spinge questo elemento tutto a destra */
+    margin-left: auto;
+    /* spinge questo elemento tutto a destra */
     text-align: right;
 }
 
@@ -182,22 +265,29 @@ body {
 
 .textlist {
     display: flex;
-    justify-content: space-between; /* allinea testi */
+    justify-content: space-between;
+    /* allinea testi */
     align-items: center;
-    text-decoration: none; /* rimuove sottolineatura link */
-    
+    text-decoration: none;
+    /* rimuove sottolineatura link */
+
 }
 
 .textlist:hover {
-    text-decoration: underline; /* effetto hover */
+    text-decoration: underline;
+    /* effetto hover */
 }
 
 .list-container {
     display: flex;
-    flex-direction: column; /* mette i figli uno sotto l’altro */
-    justify-content: center; /* centra verticalmente */
-    align-items: stretch; /* ogni link prende tutta la larghezza */
-    height: 100vh; /* occupa tutta la viewport */
+    flex-direction: column;
+    /* mette i figli uno sotto l’altro */
+    justify-content: center;
+    /* centra verticalmente */
+    align-items: stretch;
+    /* ogni link prende tutta la larghezza */
+    height: 100vh;
+    /* occupa tutta la viewport */
 }
 
 
@@ -213,14 +303,16 @@ body {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    width: 100dvw; /* usa la viewport dinamica */
+    width: 100dvw;
+    /* usa la viewport dinamica */
     height: 100dvh;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
 }
 
 .slide {
-    flex: 0 0 100dvw; /* cambia da 100vw */
+    flex: 0 0 100dvw;
+    /* cambia da 100vw */
     height: 100dvh;
     scroll-snap-align: start;
     position: relative;
@@ -230,14 +322,16 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block; /* evita spazi bianchi causati da img inline */
+    display: block;
+    /* evita spazi bianchi causati da img inline */
 }
 
 .slide video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block; /* evita spazi bianchi causati da img inline */
+    display: block;
+    /* evita spazi bianchi causati da img inline */
 }
 
 .gallery-controls {
@@ -256,7 +350,8 @@ body {
 .gallery-counter {
     font-family: Arial, sans-serif;
     text-decoration: none;
-    pointer-events: auto; /* permetti click solo ai bottoni */
+    pointer-events: auto;
+    /* permetti click solo ai bottoni */
     mix-blend-mode: difference;
 }
 
@@ -267,14 +362,16 @@ body {
 .gallery-nav {
     position: absolute;
     top: 0;
-    width: 15%; /* area attiva per hover */
+    width: 15%;
+    /* area attiva per hover */
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     z-index: 2;
-    opacity: 0; /* invisibile di default */
+    opacity: 0;
+    /* invisibile di default */
     transition: opacity 0.3s;
 }
 
@@ -286,12 +383,13 @@ body {
 }
 
 .gallery-nav:hover {
-    opacity: 1; /* visibile al passaggio */
+    opacity: 1;
+    /* visibile al passaggio */
 }
 
 .gallery-nav.left-nav {
     left: 0;
-}   
+}
 
 .gallery-nav.right-nav {
     right: 0;
@@ -300,21 +398,24 @@ body {
 .gallery-nav .arrow {
     font-size: 2rem;
     color: white;
-    mix-blend-mode: difference; /* coerente con il tuo stile */
+    mix-blend-mode: difference;
+    /* coerente con il tuo stile */
     user-select: none;
 }
 
 .gallery-nav.left-nav .arrow {
-    left: 15px; /* distanza dal bordo sinistro */
+    left: 15px;
+    /* distanza dal bordo sinistro */
 }
 
 .gallery-nav.right-nav .arrow {
-    right: 15px; /* distanza dal bordo destro */
+    right: 15px;
+    /* distanza dal bordo destro */
 }
 
 
 /* GALLERY-VIDEO */
-           
+
 .play-btn {
     position: absolute;
     background: rgba(0, 0, 0, 0.8);
@@ -333,7 +434,8 @@ body {
 
 .time-display {
     display: none;
-    margin-left: auto; /* lo spinge tutto a destra */
+    margin-left: auto;
+    /* lo spinge tutto a destra */
     pointer-events: none;
     mix-blend-mode: difference;
 }
@@ -346,7 +448,8 @@ body {
 
 .textlist {
     display: flex;
-    justify-content: space-between; /* allinea primi 2 a sinistra, ultimo a destra */
+    justify-content: space-between;
+    /* allinea primi 2 a sinistra, ultimo a destra */
     mix-blend-mode: difference;
     color: white;
 }
@@ -356,16 +459,20 @@ body {
 }
 
 .textlist .align-right {
-    margin-left: auto; /* spinge questo elemento tutto a destra */
+    margin-left: auto;
+    /* spinge questo elemento tutto a destra */
     text-align: right;
 }
 
 .list-container {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* centra verticalmente */
-    align-items: stretch;    /* allunga la lista a tutta la larghezza */
-    height: 100vh;           /* occupa tutta la viewport */
+    justify-content: center;
+    /* centra verticalmente */
+    align-items: stretch;
+    /* allunga la lista a tutta la larghezza */
+    height: 100vh;
+    /* occupa tutta la viewport */
 }
 
 
@@ -378,16 +485,18 @@ body {
 
 @media (max-width: 768px) {
     body {
-        font-size: 1rem; /* rimpicciolisce la base */
+        font-size: 1rem;
+        /* rimpicciolisce la base */
     }
 
     .header .right {
-    gap: 50px; /* spazio tra Index e @carluota */
+        gap: 50px;
+        /* spazio tra Index e @carluota */
     }
 
     .text-overlay,
     .txt {
-    gap: 40px;
+        gap: 40px;
     }
 
     .spacer-video {
@@ -396,9 +505,18 @@ body {
 
     .gallery-nav {
         display: none;
-        pointer-events: none; /* Nessun click possibile */
+        pointer-events: none;
+        /* Nessun click possibile */
+    }
+
+    /* PAGINA INFO */
+    .info-text-about {
+        font-size: 1.5rem;
+        line-height: 100%;
+    }
+
+    .rotating-overlay img {
+        width: 100px;
     }
 
 }
-
-
