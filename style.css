@@ -30,6 +30,15 @@ body {
     width: 100%;
 }
 
+.header::selection,
+.txt::selection,
+.text-overlay::selection,
+.textlist::selection {
+    background: white;
+    color: black;
+    mix-blend-mode: normal;
+}
+
 .spacer {
     width: 100vw;
     height: 100vh;
@@ -87,10 +96,20 @@ body {
     /* spazio tra Index e @carluota */
 }
 
+.bottom-text-home {
+    position: absolute;
+    margin-top: 50px;
+    /* distanza dal bordo inferiore */
+    font-size: 5rem;
+    text-align: left;
+    line-height: 95%;
+}
+
 .bottom-text {
     position: absolute;
-    bottom: 1rem;
+    bottom: 0px;  
     /* distanza dal bordo inferiore */
+    font-size: 1.3rem;
     text-align: left;
     line-height: 100%;
 }
