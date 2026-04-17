@@ -114,6 +114,28 @@ body {
     line-height: 100%;
 }
 
+/* Small label shown at the bottom of the viewport before the gallery */
+.selected-work {
+    position: absolute;
+    left: 50%;
+    bottom: 1.2rem;
+    transform: translateX(-50%);
+    z-index: 0;
+    pointer-events: none;
+    font-size: 1rem;
+    color: white;
+    mix-blend-mode: difference;
+    letter-spacing: 0.05em;
+    opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+    .selected-work {
+        font-size: 0.9rem;
+        bottom: 0.8rem;
+    }
+}
+
 body.info-page .spacer {
   background: #FFFC43 ;
 }
@@ -519,7 +541,7 @@ body.info-page .header {
 
     .bottom-text-home {
     position: absolute;
-    margin-top: 50px;
+    margin-top: 30px;
     /* distanza dal bordo inferiore */
     font-size: 2rem;
     text-align: left;
@@ -570,3 +592,33 @@ body.info-page .header {
     color: #000000;
     mix-blend-mode: normal; /* evita effetti di inversione dovuti a mix-blend-mode */
 }
+
+/* Centered label shown before the gallery */
+.selected-work {
+    position: absolute;
+    left: 50%;
+    bottom: 1.2rem;
+    transform: translateX(-50%);
+    z-index: 6;
+    pointer-events: auto;
+    cursor: pointer;
+    font-size: 1rem;
+    color: white;
+    mix-blend-mode: difference;
+    letter-spacing: 0.05em;
+    opacity: 0.95;
+    text-align: center;
+}
+
+.selected-work:hover {
+    text-decoration: underline;
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .selected-work {
+        font-size: 0.9rem;
+        bottom: 0.8rem;
+    }
+}
+

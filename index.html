@@ -22,16 +22,9 @@
             <br> Occasionally overthinking visuals so you don’t have to.
             </div>
    </div>
-<a href="memoriale.html" class="wrk-link">
-   <div class="wrk">
-    <img class="focus-center" src="media/memoriale/memoriale_evento02.jpg" alt="">
-     <div class="text-overlay">
-        <span>2025 Milan</span>
-        <span>Il Memoriale del Vuoto</span>
-        <span class="align-right">Archive design</span>
-    </div>
-   </div>
-</a>
+<!-- hint shown at the bottom of the viewport before the gallery -->
+<div class="selected-work" role="button" tabindex="0">↓ Selected work ↓</div>
+
 <a href="echoes.html" class="wrk-link">
    <div class="wrk">
     <img src="media/echoes/echoes_cover.jpg" alt="">
@@ -40,6 +33,16 @@
         <span>Echoes: shaping sound</span>
         <span class="align-right">Visual design</span>
      </div>
+   </div>
+</a>
+<a href="memoriale.html" class="wrk-link">
+   <div class="wrk">
+    <img class="focus-center" src="media/memoriale/memoriale_evento02.jpg" alt="">
+     <div class="text-overlay">
+        <span>2025 Milan</span>
+        <span>Il Memoriale del Vuoto</span>
+        <span class="align-right">Archive design</span>
+    </div>
    </div>
 </a>
 <a href="anthropology.html" class="wrk-link">
@@ -114,6 +117,43 @@
 
     window.addEventListener('scroll', updateTextOverlay);
     window.addEventListener('load', updateTextOverlay); // 👈 esegui subito al load
+</script>
+
+<script>
+   // Make the bottom label interactive: scroll to the first .wrk when activated
+   const selectedWorkBtn = document.querySelector('.selected-work');
+   const firstWork = document.querySelector('.wrk');
+
+   function scrollToFirstWork() {
+      if (!firstWork) return;
+      const startY = window.scrollY || window.pageYOffset;
+      const rect = firstWork.getBoundingClientRect();
+      const targetY = startY + rect.top;
+      const duration = 300; // milliseconds - slower than default
+      const startTime = performance.now();
+
+      function easeInOutQuad(t) { return t<0.5 ? 2*t*t : -1+(4-2*t)*t }
+
+      function step(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(1, elapsed / duration);
+          const eased = easeInOutQuad(progress);
+          window.scrollTo(0, Math.round(startY + (targetY - startY) * eased));
+          if (progress < 1) requestAnimationFrame(step);
+      }
+
+      requestAnimationFrame(step);
+   }
+
+   if (selectedWorkBtn) {
+      selectedWorkBtn.addEventListener('click', scrollToFirstWork);
+      selectedWorkBtn.addEventListener('keydown', (e) => {
+         if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+            e.preventDefault();
+            scrollToFirstWork();
+         }
+      });
+   }
 </script>
 
 
