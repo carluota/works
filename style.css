@@ -513,6 +513,19 @@ body.info-page .header {
         /* spazio tra Index e @carluota */
     }
 
+    .bottom-text {
+       font-size: 1rem;
+    }
+
+    .bottom-text-home {
+    position: absolute;
+    margin-top: 50px;
+    /* distanza dal bordo inferiore */
+    font-size: 2rem;
+    text-align: left;
+    line-height: 95%;
+}
+
     .text-overlay,
     .txt {
         gap: 40px;
@@ -538,4 +551,22 @@ body.info-page .header {
         width: 100px;
     }
 
+}
+
+
+
+
+
+
+
+/* Uniform selection color across the whole site */
+/* Force selection visuals to use normal blending so elements with mix-blend-mode: difference
+   don't invert selected text color. Targets all elements' selection pseudo-elements. */
+*::selection,
+*::-moz-selection,
+::selection,
+::-moz-selection {
+    background: #ffffff;
+    color: #000000;
+    mix-blend-mode: normal; /* evita effetti di inversione dovuti a mix-blend-mode */
 }
